@@ -51,6 +51,25 @@ class TransactionBuilder
         ];
     }
 
+
+    /**
+     * @return String A json encoded version of the data in the model
+     */
+    public function export()
+    {
+        return json_encode($this->_model);
+    }
+
+    /**
+     * Import a exported version of this transaction
+     * @param string    $exported   a previousle exported version of this transaction
+     */
+    public function import($exported){
+        $this->_model = json_decode($exported); 
+        $this->_line_number = count($this->_model['line'])
+        return $this;
+    }
+
     /**
      * Set the commit flag of the transaction.
      *
