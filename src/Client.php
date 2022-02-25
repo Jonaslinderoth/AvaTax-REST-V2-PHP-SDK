@@ -216,9 +216,9 @@ class AvaTaxClientBase
                 if ($contentLength!=null and $length ==0 and intdiv($code , 100) ==2 ){
                         return null;                
                 }
+                $JsonBody = json_decode($body);
             }
-            $JsonBody = json_decode($body);
-            if (is_null($JsonBody)) {
+            if (!isset($JsonBody) || is_null($JsonBody)) {
                 if (json_last_error() === JSON_ERROR_SYNTAX) {
 				     throw new \Exception('The response is in unexpected format. The response is: ' . $JsonBody);
 			     }
