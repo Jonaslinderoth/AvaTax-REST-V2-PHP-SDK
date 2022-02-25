@@ -216,6 +216,8 @@ class AvaTaxClientBase
                 if ($contentLength!=null and $length ==0 and intdiv($code , 100) ==2 ){
                         return null;                
                 }
+            }
+            if (!in_array ("text/csv",$contentTypes)){
                 $JsonBody = json_decode($body);
             }
             if (!isset($JsonBody) || is_null($JsonBody)) {
