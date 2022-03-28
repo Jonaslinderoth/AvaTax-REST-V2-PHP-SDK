@@ -65,8 +65,8 @@ class TransactionBuilder
      * @param string    $exported   a previousle exported version of this transaction
      */
     public function import($exported){
-        $this->_model = json_decode($exported); 
-        $this->_line_number = count($this->_model['line']);
+        $this->_model = json_decode($exported, true); 
+        $this->_line_number = count($this->_model['lines']);
         return $this;
     }
 
