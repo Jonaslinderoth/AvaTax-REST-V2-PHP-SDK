@@ -66,7 +66,7 @@ class TransactionBuilder
      */
     public function import($exported){
         $this->_model = json_decode($exported); 
-        $this->_line_number = count($this->_model['line'])
+        $this->_line_number = count($this->_model['line']);
         return $this;
     }
 
